@@ -1,0 +1,57 @@
+import './Form.css'
+
+import { useState } from 'react'
+import Button from './../UI/Button/Button'
+
+
+
+const Form = dataProps => {
+
+
+
+	const [inputValue, setInputValue] = useState('')
+
+
+
+	const inputHandler = event => {
+
+		event.setInputValue(event.target.value)
+
+	}
+
+	const submitHandler = event => {
+
+		event.preventDefault()
+
+		dataProps.onGoalAdd(inputValue)
+
+	}
+
+
+	return (
+
+<form onSubmit={ submitHandler }>
+
+
+
+ <div className='form-control'>
+  <label>goal</label>
+
+  <input type='text' onChange={ inputHandler } />
+ </div>
+
+ <Button type='submit'>add goal</Button>
+
+
+
+</form>
+
+	)
+
+
+
+}
+
+
+
+export default Form

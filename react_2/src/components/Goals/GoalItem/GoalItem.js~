@@ -1,0 +1,32 @@
+import './GoalItem.css'
+
+
+
+const GoalItem = dataProps => {
+
+
+
+
+
+
+	return (
+
+<li className='goal-item' onClick={ removeHandler }>
+
+
+
+ { dataProps.children }
+
+
+
+</li>
+
+	)
+
+
+
+}
+
+
+
+export default 

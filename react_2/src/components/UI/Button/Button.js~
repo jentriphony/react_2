@@ -1,0 +1,33 @@
+import './Button.css'
+
+
+
+const Button = dataProps => {
+
+
+
+	return (
+
+<button
+ type={ dataProps.type }
+ className='button'
+ onClick={ dataProps.onClick }
+>
+
+
+
+ { dataProps.children }
+
+
+
+</button>
+
+)
+
+
+
+}
+
+
+
+export default Button

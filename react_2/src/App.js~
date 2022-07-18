@@ -1,0 +1,88 @@
+import './App.css'
+
+import { useState } from 'react'
+import GoalsList from './components/Goals/GoalsList/GoalsList'
+import Input from './components/Goals/Input/Input'
+
+
+
+const App = () => {
+
+
+
+  const [goals, setGoals] = useState([
+
+    {
+      text: 'goal_1',
+      id: 'goal_1'
+    },
+    {
+      text: 'goal_2',
+      id: 'goal_2'
+    }
+
+  ])
+
+
+
+  const goalAddHandler = addGoalInputText => {
+
+    setGoals(previousGoals => {
+      const goals_ = [...previousGoals]
+      return goals_.unshift({
+        text: addGoalInputText,
+        id: 'goal_' + goals.length
+      })
+    })
+
+  }
+
+  const goalRemoveHandler = goalId => {
+
+    setGoals(previousGoals => {
+      const goals_ = previousGoals.filter(goal => goal.id !== goalId)
+      return goals_
+    })
+
+  }
+
+  let goals_ = goals.length === 0 ? (
+
+<p style={ { textAlign: 'center' } }>
+ no goals
+</p>
+
+  ) : (
+
+<GoalsList goals={ goals } onGoalRemove={ goalRemoveHandler } />
+
+	)
+
+
+  return (
+
+<div>
+
+
+
+ <section id='goal-add-form'>
+  <Input onAddGoal={ goalAddHandler } />
+ </section>
+
+ <section id='goals'>
+  { goals_ }
+ </section>
+
+
+
+</div>
+
+  )
+
+
+
+}
+
+
+
+export default App
